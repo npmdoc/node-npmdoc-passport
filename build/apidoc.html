@@ -46,351 +46,352 @@
     font-weight: bold;
 }
 </style>
-<h1>api-documentation for
+<h1>api documentation for
     <a
-        
+
         href="http://passportjs.org/"
-        
+
     >passport (v0.3.2)</a>
 </h1>
+<h4>Simple, unobtrusive authentication for Node.js.</h4>
 <div class="apidocSectionDiv"><a
     href="#apidoc.tableOfContents"
     id="apidoc.tableOfContents"
 ><h1>table of contents</h1></a><ol>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.passport">module passport</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Authenticator">
             function <span class="apidocSignatureSpan">passport.</span>Authenticator
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Passport">
             function <span class="apidocSignatureSpan">passport.</span>Passport
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Strategy">
             function <span class="apidocSignatureSpan">passport.</span>Strategy
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.strategies.SessionStrategy">
             function <span class="apidocSignatureSpan">passport.</span>strategies.SessionStrategy
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">passport.</span>Authenticator.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">passport.</span>Strategy.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">passport.</span>_deserializers</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">passport.</span>_framework</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">passport.</span>_infoTransformers</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">passport.</span>_serializers</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">passport.</span>_strategies</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">passport.</span>strategies</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">passport.</span>strategies.SessionStrategy.prototype</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">passport.</span>_key</span>
-            
+
         </li>
-        
+
         <li>
-            
+
             <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">passport.</span>_userProperty</span>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.passport.Authenticator">module passport.Authenticator</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Authenticator.Authenticator">
             function <span class="apidocSignatureSpan">passport.</span>Authenticator
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.passport.Authenticator.prototype">module passport.Authenticator.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Authenticator.prototype._strategy">
             function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>_strategy
             <span class="apidocSignatureSpan">(name)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Authenticator.prototype.authenticate">
             function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>authenticate
             <span class="apidocSignatureSpan">(strategy, options, callback)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Authenticator.prototype.authorize">
             function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>authorize
             <span class="apidocSignatureSpan">(strategy, options, callback)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Authenticator.prototype.deserializeUser">
             function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>deserializeUser
             <span class="apidocSignatureSpan">(fn, req, done)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Authenticator.prototype.framework">
             function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>framework
             <span class="apidocSignatureSpan">(fw)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Authenticator.prototype.init">
             function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>init
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Authenticator.prototype.initialize">
             function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>initialize
             <span class="apidocSignatureSpan">(options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Authenticator.prototype.serializeUser">
             function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>serializeUser
             <span class="apidocSignatureSpan">(fn, req, done)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Authenticator.prototype.session">
             function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>session
             <span class="apidocSignatureSpan">(options)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Authenticator.prototype.transformAuthInfo">
             function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>transformAuthInfo
             <span class="apidocSignatureSpan">(fn, req, done)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Authenticator.prototype.unuse">
             function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>unuse
             <span class="apidocSignatureSpan">(name)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Authenticator.prototype.use">
             function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>use
             <span class="apidocSignatureSpan">(name, strategy)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.passport.Strategy">module passport.Strategy</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Strategy.Strategy">
             function <span class="apidocSignatureSpan">passport.</span>Strategy
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.passport.Strategy.prototype">module passport.Strategy.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.Strategy.prototype.authenticate">
             function <span class="apidocSignatureSpan">passport.Strategy.prototype.</span>authenticate
             <span class="apidocSignatureSpan">(req, options)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.passport._framework">module passport._framework</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport._framework.authenticate">
             function <span class="apidocSignatureSpan">passport._framework.</span>authenticate
             <span class="apidocSignatureSpan">(passport, name, options, callback)</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport._framework.initialize">
             function <span class="apidocSignatureSpan">passport._framework.</span>initialize
             <span class="apidocSignatureSpan">(passport)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.passport.strategies">module passport.strategies</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.strategies.SessionStrategy">
             function <span class="apidocSignatureSpan">passport.strategies.</span>SessionStrategy
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.passport.strategies.SessionStrategy">module passport.strategies.SessionStrategy</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.strategies.SessionStrategy.SessionStrategy">
             function <span class="apidocSignatureSpan">passport.strategies.</span>SessionStrategy
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.strategies.SessionStrategy.super_">
             function <span class="apidocSignatureSpan">passport.strategies.SessionStrategy.</span>super_
             <span class="apidocSignatureSpan">()</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
     <li class="apidocModuleLi"><a href="#apidoc.module.passport.strategies.SessionStrategy.prototype">module passport.strategies.SessionStrategy.prototype</a><ol>
-        
+
         <li>
-            
+
             <a class="apidocElementLiA" href="#apidoc.element.passport.strategies.SessionStrategy.prototype.authenticate">
             function <span class="apidocSignatureSpan">passport.strategies.SessionStrategy.prototype.</span>authenticate
             <span class="apidocSignatureSpan">(req, options)</span>
             </a>
-            
+
         </li>
-        
+
     </ol></li>
-    
+
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.passport" id="apidoc.module.passport">module passport</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.passport.Authenticator" id="apidoc.element.passport.Authenticator">
         function <span class="apidocSignatureSpan">passport.</span>Authenticator
@@ -406,14 +407,14 @@
   this._infoTransformers = [];
   this._framework = null;
   this._userProperty = &#x27;user&#x27;;
-  
+
   this.init();
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.passport.Passport" id="apidoc.element.passport.Passport">
         function <span class="apidocSignatureSpan">passport.</span>Passport
@@ -429,14 +430,14 @@
   this._infoTransformers = [];
   this._framework = null;
   this._userProperty = &#x27;user&#x27;;
-  
+
   this.init();
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.passport.Strategy" id="apidoc.element.passport.Strategy">
         function <span class="apidocSignatureSpan">passport.</span>Strategy
@@ -448,9 +449,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.passport.strategies.SessionStrategy" id="apidoc.element.passport.strategies.SessionStrategy">
         function <span class="apidocSignatureSpan">passport.</span>strategies.SessionStrategy
@@ -464,36 +465,36 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.passport.Authenticator" id="apidoc.module.passport.Authenticator">module passport.Authenticator</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.passport.Authenticator.Authenticator" id="apidoc.element.passport.Authenticator.Authenticator">
         function <span class="apidocSignatureSpan">passport.</span>Authenticator
@@ -509,19 +510,19 @@
   this._infoTransformers = [];
   this._framework = null;
   this._userProperty = &#x27;user&#x27;;
-  
+
   this.init();
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.passport.Authenticator.prototype" id="apidoc.module.passport.Authenticator.prototype">module passport.Authenticator.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.passport.Authenticator.prototype._strategy" id="apidoc.element.passport.Authenticator.prototype._strategy">
         function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>_strategy
@@ -534,9 +535,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.passport.Authenticator.prototype.authenticate" id="apidoc.element.passport.Authenticator.prototype.authenticate">
         function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>authenticate
@@ -549,9 +550,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.passport.Authenticator.prototype.authorize" id="apidoc.element.passport.Authenticator.prototype.authorize">
         function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>authorize
@@ -562,15 +563,15 @@
     <li>description and source-code<pre class="apidocCodePre">authorize = function (strategy, options, callback) {
   options = options || {};
   options.assignProperty = &#x27;account&#x27;;
-  
+
   var fn = this._framework.authorize || this._framework.authenticate;
   return fn(this, strategy, options, callback);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.passport.Authenticator.prototype.deserializeUser" id="apidoc.element.passport.Authenticator.prototype.deserializeUser">
         function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>deserializeUser
@@ -582,7 +583,7 @@
   if (typeof fn === &#x27;function&#x27;) {
     return this._deserializers.push(fn);
   }
-  
+
   // private implementation that traverses the chain of deserializers,
   // attempting to deserialize a user
   var obj = fn;
@@ -592,7 +593,7 @@
     done = req;
     req = undefined;
   }
-  
+
   var stack = this._deserializers;
   (function pass(i, err, user) {
     // deserializers use &#x27;pass&#x27; as an error to skip processing
@@ -604,17 +605,17 @@
     // a valid user existed when establishing the session, but that user has
     // since been removed
     if (user === null || user === false) { return done(null, false); }
-    
+
     var layer = stack[i];
     if (!layer) {
       return done(new Error(&#x27;Failed to deserialize user out of session&#x27;));
     }
-    
-    
+
+
     function deserialized(e, u) {
       pass(i + 1, e, u);
     }
-    
+
     try {
       var arity = layer.length;
       if (arity == 3) {
@@ -629,9 +630,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.passport.Authenticator.prototype.framework" id="apidoc.element.passport.Authenticator.prototype.framework">
         function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>framework
@@ -645,9 +646,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.passport.Authenticator.prototype.init" id="apidoc.element.passport.Authenticator.prototype.init">
         function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>init
@@ -661,9 +662,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.passport.Authenticator.prototype.initialize" id="apidoc.element.passport.Authenticator.prototype.initialize">
         function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>initialize
@@ -674,14 +675,14 @@
     <li>description and source-code<pre class="apidocCodePre">initialize = function (options) {
   options = options || {};
   this._userProperty = options.userProperty || &#x27;user&#x27;;
-  
+
   return this._framework.initialize(this, options);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.passport.Authenticator.prototype.serializeUser" id="apidoc.element.passport.Authenticator.prototype.serializeUser">
         function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>serializeUser
@@ -693,7 +694,7 @@
   if (typeof fn === &#x27;function&#x27;) {
     return this._serializers.push(fn);
   }
-  
+
   // private implementation that traverses the chain of serializers, attempting
   // to serialize a user
   var user = fn;
@@ -703,7 +704,7 @@
     done = req;
     req = undefined;
   }
-  
+
   var stack = this._serializers;
   (function pass(i, err, obj) {
     // serializers use &#x27;pass&#x27; as an error to skip processing
@@ -712,17 +713,17 @@
     }
     // an error or serialized object was obtained, done
     if (err || obj || obj === 0) { return done(err, obj); }
-    
+
     var layer = stack[i];
     if (!layer) {
       return done(new Error(&#x27;Failed to serialize user into session&#x27;));
     }
-    
-    
+
+
     function serialized(e, o) {
       pass(i + 1, e, o);
     }
-    
+
     try {
       var arity = layer.length;
       if (arity == 3) {
@@ -737,9 +738,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.passport.Authenticator.prototype.session" id="apidoc.element.passport.Authenticator.prototype.session">
         function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>session
@@ -752,9 +753,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.passport.Authenticator.prototype.transformAuthInfo" id="apidoc.element.passport.Authenticator.prototype.transformAuthInfo">
         function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>transformAuthInfo
@@ -766,7 +767,7 @@
   if (typeof fn === &#x27;function&#x27;) {
     return this._infoTransformers.push(fn);
   }
-  
+
   // private implementation that traverses the chain of transformers,
   // attempting to transform auth info
   var info = fn;
@@ -776,7 +777,7 @@
     done = req;
     req = undefined;
   }
-  
+
   var stack = this._infoTransformers;
   (function pass(i, err, tinfo) {
     // transformers use &#x27;pass&#x27; as an error to skip processing
@@ -785,19 +786,19 @@
     }
     // an error or transformed info was obtained, done
     if (err || tinfo) { return done(err, tinfo); }
-    
+
     var layer = stack[i];
     if (!layer) {
       // if no transformers are registered (or they all pass), the default
       // behavior is to use the un-transformed info as-is
       return done(null, info);
     }
-    
-    
+
+
     function transformed(e, t) {
       pass(i + 1, e, t);
     }
-    
+
     try {
       var arity = layer.length;
       if (arity == 1) {
@@ -816,9 +817,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.passport.Authenticator.prototype.unuse" id="apidoc.element.passport.Authenticator.prototype.unuse">
         function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>unuse
@@ -832,9 +833,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.passport.Authenticator.prototype.use" id="apidoc.element.passport.Authenticator.prototype.use">
         function <span class="apidocSignatureSpan">passport.Authenticator.prototype.</span>use
@@ -848,20 +849,20 @@
     name = strategy.name;
   }
   if (!name) { throw new Error(&#x27;Authentication strategies must have a name&#x27;); }
-  
+
   this._strategies[name] = strategy;
   return this;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.passport.Strategy" id="apidoc.module.passport.Strategy">module passport.Strategy</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.passport.Strategy.Strategy" id="apidoc.element.passport.Strategy.Strategy">
         function <span class="apidocSignatureSpan">passport.</span>Strategy
@@ -873,14 +874,14 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.passport.Strategy.prototype" id="apidoc.module.passport.Strategy.prototype">module passport.Strategy.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.passport.Strategy.prototype.authenticate" id="apidoc.element.passport.Strategy.prototype.authenticate">
         function <span class="apidocSignatureSpan">passport.Strategy.prototype.</span>authenticate
@@ -893,14 +894,14 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.passport._framework" id="apidoc.module.passport._framework">module passport._framework</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.passport._framework.authenticate" id="apidoc.element.passport._framework.authenticate">
         function <span class="apidocSignatureSpan">passport._framework.</span>authenticate
@@ -914,9 +915,9 @@
     options = {};
   }
   options = options || {};
-  
+
   var multi = true;
-  
+
   // Cast `name` to an array, allowing authentication to pass through a chain of
   // strategies.  The first strategy to succeed, redirect, or error will halt
   // the chain.  Authentication failures will proceed through each strategy in
@@ -931,17 +932,17 @@
     name = [ name ];
     multi = false;
   }
-  
+
   return function authenticate(req, res, next) {
     if (http.IncomingMessage.prototype.logIn
         &#x26;&#x26; http.IncomingMessage.prototype.logIn !== IncomingMessageExt.logIn) {
       require(&#x27;../framework/connect&#x27;).__monkeypatchNode();
     }
-    
-    
+
+
     // accumulator for failures from each strategy in the chain
     var failures = [];
-    
+
     function allFailed() {
       if (callback) {
         if (!multi) {
@@ -952,20 +953,20 @@
           return callback(null, false, challenges, statuses);
         }
       }
-      
+
       // Strategies are ordered by priority.  For the purpose of flashing a
       // message, the first failure will be displayed.
       var failure = failures[0] || {}
         , challenge = failure.challenge || {}
         , msg;
-    
+
       if (options.failureFlash) {
         var flash = options.failureFlash;
         if (typeof flash == &#x27;string&#x27;) {
           flash = { type: &#x27;error&#x27;, message: flash };
         }
         flash.type = flash.type || &#x27;error&#x27;;
-      
+
         var type = flash.type || challenge.type || &#x27;error&#x27;;
         msg = flash.message || challenge.message || challenge;
         if (typeof msg == &#x27;string&#x27;) {
@@ -985,7 +986,7 @@
       if (options.failureRedirect) {
         return res.redirect(options.failureRedirect);
       }
-    
+
       // When failure handling is not delegated to the application, the default
       // is to respond with 401 Unauthorized.  Note that the WWW-Authenticate
       // header will be set according to the strategies in use (see
@@ -993,18 +994,18 @@
       // will be included in the response.
       var rchallenge = []
         , rstatus, status;
-      
+
       for (var j = 0, len = failures.length; j &#x3c; len; j++) {
         failure = failures[j];
         challenge = failure.challenge;
         status = failure.status;
-          
+
         rstatus = rstatus || status;
         if (typeof challenge == &#x27;string&#x27;) {
           rchallenge.push(challenge);
         }
       }
-    
+
       res.statusCode = rstatus || 401;
       if (res.statusCode == 401 &#x26;&#x26; rchallenge.length) {
         res.setHeader(&#x27;WWW-Authenticate&#x27;, rchallenge);
@@ -1014,18 +1015,18 @@
       }
       res.end(http.STATUS_CODES[res.statusCode]);
     }
-    
+
     (function attempt(i) {
       var layer = name[i];
       // If no more strategies exist in the chain, authentication has failed.
       if (!layer) { return allFailed(); }
-    
+
       // Get the strategy, which will be used as prot ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.passport._framework.initialize" id="apidoc.element.passport._framework.initialize">
         function <span class="apidocSignatureSpan">passport._framework.</span>initialize
@@ -1034,7 +1035,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function initialize(passport) {
-  
+
   return function initialize(req, res, next) {
     req._passport = {};
     req._passport.instance = passport;
@@ -1049,14 +1050,14 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.passport.strategies" id="apidoc.module.passport.strategies">module passport.strategies</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.passport.strategies.SessionStrategy" id="apidoc.element.passport.strategies.SessionStrategy">
         function <span class="apidocSignatureSpan">passport.strategies.</span>SessionStrategy
@@ -1070,14 +1071,14 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.passport.strategies.SessionStrategy" id="apidoc.module.passport.strategies.SessionStrategy">module passport.strategies.SessionStrategy</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.passport.strategies.SessionStrategy.SessionStrategy" id="apidoc.element.passport.strategies.SessionStrategy.SessionStrategy">
         function <span class="apidocSignatureSpan">passport.strategies.</span>SessionStrategy
@@ -1091,9 +1092,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
-    
+
+
+
     <h2>
         <a href="#apidoc.element.passport.strategies.SessionStrategy.super_" id="apidoc.element.passport.strategies.SessionStrategy.super_">
         function <span class="apidocSignatureSpan">passport.strategies.SessionStrategy.</span>super_
@@ -1105,14 +1106,14 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.passport.strategies.SessionStrategy.prototype" id="apidoc.module.passport.strategies.SessionStrategy.prototype">module passport.strategies.SessionStrategy.prototype</a></h1>
-    
-    
+
+
     <h2>
         <a href="#apidoc.element.passport.strategies.SessionStrategy.prototype.authenticate" id="apidoc.element.passport.strategies.SessionStrategy.prototype.authenticate">
         function <span class="apidocSignatureSpan">passport.strategies.SessionStrategy.prototype.</span>authenticate
@@ -1124,7 +1125,7 @@
   if (!req._passport) { return this.error(new Error(&#x27;passport.initialize() middleware not in use&#x27;)); }
   options = options || {};
 
-  var self = this, 
+  var self = this,
       su;
   if (req._passport.session) {
     su = req._passport.session.user;
@@ -1134,7 +1135,7 @@
     // NOTE: Stream pausing is desirable in the case where later middleware is
     //       listening for events emitted from request.  For discussion on the
     //       matter, refer to: https://github.com/jaredhanson/passport/pull/106
-    
+
     var paused = options.pauseStream ? pause(req) : null;
     req._passport.instance.deserializeUser(su, req, function(err, user) {
       if (err) { return self.error(err); }
@@ -1159,8 +1160,8 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
-    
-    
+
+
 </div>
 
 <div class="apidocFooterDiv">
