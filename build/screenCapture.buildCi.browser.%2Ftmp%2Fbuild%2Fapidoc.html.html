@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="http://passportjs.org/"
-
-    >passport (v0.3.2)</a>
+    <a href="http://passportjs.org/">passport (v0.3.2)</a>
 </h1>
 <h4>Simple, unobtrusive authentication for Node.js.</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.passport">module passport</a><ol>
 
@@ -752,13 +745,13 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function Authenticator() {
-  this._key = &#x27;passport&#x27;;
+  this._key = 'passport';
   this._strategies = {};
   this._serializers = [];
   this._deserializers = [];
   this._infoTransformers = [];
   this._framework = null;
-  this._userProperty = &#x27;user&#x27;;
+  this._userProperty = 'user';
 
   this.init();
 }</pre></li>
@@ -806,7 +799,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">Authenticator.prototype.authorize = function (strategy, options, callback) {
   options = options || {};
-  options.assignProperty = &#x27;account&#x27;;
+  options.assignProperty = 'account';
 
   var fn = this._framework.authorize || this._framework.authenticate;
   return fn(this, strategy, options, callback);
@@ -824,7 +817,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">Authenticator.prototype.deserializeUser = function (fn, req, done) {
-  if (typeof fn === &#x27;function&#x27;) {
+  if (typeof fn === 'function') {
     return this._deserializers.push(fn);
   }
 
@@ -833,15 +826,15 @@
   var obj = fn;
 
   // For backwards compatibility
-  if (typeof req === &#x27;function&#x27;) {
+  if (typeof req === 'function') {
     done = req;
     req = undefined;
   }
 
   var stack = this._deserializers;
   (function pass(i, err, user) {
-    // deserializers use &#x27;pass&#x27; as an error to skip processing
-    if (&#x27;pass&#x27; === err) {
+    // deserializers use 'pass' as an error to skip processing
+    if ('pass' === err) {
       err = undefined;
     }
     // an error or deserialized user was obtained, done
@@ -852,7 +845,7 @@
 
     var layer = stack[i];
     if (!layer) {
-      return done(new Error(&#x27;Failed to deserialize user out of session&#x27;));
+      return done(new Error('Failed to deserialize user out of session'));
     }
 
 
@@ -901,7 +894,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">Authenticator.prototype.init = function () {
-  this.framework(require(&#x27;./framework/connect&#x27;)());
+  this.framework(require('./framework/connect')());
   this.use(new SessionStrategy());
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -918,7 +911,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">Authenticator.prototype.initialize = function (options) {
   options = options || {};
-  this._userProperty = options.userProperty || &#x27;user&#x27;;
+  this._userProperty = options.userProperty || 'user';
 
   return this._framework.initialize(this, options);
 }</pre></li>
@@ -935,7 +928,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">Authenticator.prototype.serializeUser = function (fn, req, done) {
-  if (typeof fn === &#x27;function&#x27;) {
+  if (typeof fn === 'function') {
     return this._serializers.push(fn);
   }
 
@@ -944,15 +937,15 @@
   var user = fn;
 
   // For backwards compatibility
-  if (typeof req === &#x27;function&#x27;) {
+  if (typeof req === 'function') {
     done = req;
     req = undefined;
   }
 
   var stack = this._serializers;
   (function pass(i, err, obj) {
-    // serializers use &#x27;pass&#x27; as an error to skip processing
-    if (&#x27;pass&#x27; === err) {
+    // serializers use 'pass' as an error to skip processing
+    if ('pass' === err) {
       err = undefined;
     }
     // an error or serialized object was obtained, done
@@ -960,7 +953,7 @@
 
     var layer = stack[i];
     if (!layer) {
-      return done(new Error(&#x27;Failed to serialize user into session&#x27;));
+      return done(new Error('Failed to serialize user into session'));
     }
 
 
@@ -993,7 +986,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">Authenticator.prototype.session = function (options) {
-  return this.authenticate(&#x27;session&#x27;, options);
+  return this.authenticate('session', options);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1008,7 +1001,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">Authenticator.prototype.transformAuthInfo = function (fn, req, done) {
-  if (typeof fn === &#x27;function&#x27;) {
+  if (typeof fn === 'function') {
     return this._infoTransformers.push(fn);
   }
 
@@ -1017,15 +1010,15 @@
   var info = fn;
 
   // For backwards compatibility
-  if (typeof req === &#x27;function&#x27;) {
+  if (typeof req === 'function') {
     done = req;
     req = undefined;
   }
 
   var stack = this._infoTransformers;
   (function pass(i, err, tinfo) {
-    // transformers use &#x27;pass&#x27; as an error to skip processing
-    if (&#x27;pass&#x27; === err) {
+    // transformers use 'pass' as an error to skip processing
+    if ('pass' === err) {
       err = undefined;
     }
     // an error or transformed info was obtained, done
@@ -1092,7 +1085,7 @@
     strategy = name;
     name = strategy.name;
   }
-  if (!name) { throw new Error(&#x27;Authentication strategies must have a name&#x27;); }
+  if (!name) { throw new Error('Authentication strategies must have a name'); }
 
   this._strategies[name] = strategy;
   return this;
@@ -1110,13 +1103,13 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function Authenticator() {
-  this._key = &#x27;passport&#x27;;
+  this._key = 'passport';
   this._strategies = {};
   this._serializers = [];
   this._deserializers = [];
   this._infoTransformers = [];
   this._framework = null;
-  this._userProperty = &#x27;user&#x27;;
+  this._userProperty = 'user';
 
   this.init();
 }</pre></li>
@@ -1147,7 +1140,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">Strategy.prototype.authenticate = function (req, options) {
-  throw new Error(&#x27;Strategy#authenticate must be overridden by subclass&#x27;);
+  throw new Error('Strategy#authenticate must be overridden by subclass');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1162,7 +1155,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function authenticate(passport, name, options, callback) {
-  if (typeof options == &#x27;function&#x27;) {
+  if (typeof options == 'function') {
     callback = options;
     options = {};
   }
@@ -1187,8 +1180,8 @@
 
   return function authenticate(req, res, next) {
     if (http.IncomingMessage.prototype.logIn
-        &#x26;&#x26; http.IncomingMessage.prototype.logIn !== IncomingMessageExt.logIn) {
-      require(&#x27;../framework/connect&#x27;).__monkeypatchNode();
+        &amp;&amp; http.IncomingMessage.prototype.logIn !== IncomingMessageExt.logIn) {
+      require('../framework/connect').__monkeypatchNode();
     }
 
 
@@ -1214,23 +1207,23 @@
 
       if (options.failureFlash) {
         var flash = options.failureFlash;
-        if (typeof flash == &#x27;string&#x27;) {
-          flash = { type: &#x27;error&#x27;, message: flash };
+        if (typeof flash == 'string') {
+          flash = { type: 'error', message: flash };
         }
-        flash.type = flash.type || &#x27;error&#x27;;
+        flash.type = flash.type || 'error';
 
-        var type = flash.type || challenge.type || &#x27;error&#x27;;
+        var type = flash.type || challenge.type || 'error';
         msg = flash.message || challenge.message || challenge;
-        if (typeof msg == &#x27;string&#x27;) {
+        if (typeof msg == 'string') {
           req.flash(type, msg);
         }
       }
       if (options.failureMessage) {
         msg = options.failureMessage;
-        if (typeof msg == &#x27;boolean&#x27;) {
+        if (typeof msg == 'boolean') {
           msg = challenge.message || challenge;
         }
-        if (typeof msg == &#x27;string&#x27;) {
+        if (typeof msg == 'string') {
           req.session.messages = req.session.messages || [];
           req.session.messages.push(msg);
         }
@@ -1247,20 +1240,20 @@
       var rchallenge = []
         , rstatus, status;
 
-      for (var j = 0, len = failures.length; j &#x3c; len; j++) {
+      for (var j = 0, len = failures.length; j &lt; len; j++) {
         failure = failures[j];
         challenge = failure.challenge;
         status = failure.status;
 
         rstatus = rstatus || status;
-        if (typeof challenge == &#x27;string&#x27;) {
+        if (typeof challenge == 'string') {
           rchallenge.push(challenge);
         }
       }
 
       res.statusCode = rstatus || 401;
-      if (res.statusCode == 401 &#x26;&#x26; rchallenge.length) {
-        res.setHeader(&#x27;WWW-Authenticate&#x27;, rchallenge);
+      if (res.statusCode == 401 &amp;&amp; rchallenge.length) {
+        res.setHeader('WWW-Authenticate', rchallenge);
       }
       if (options.failWithError) {
         return next(new AuthenticationError(http.STATUS_CODES[res.statusCode], rstatus));
@@ -1292,7 +1285,7 @@
     req._passport = {};
     req._passport.instance = passport;
 
-    if (req.session &#x26;&#x26; req.session[passport._key]) {
+    if (req.session &amp;&amp; req.session[passport._key]) {
       // load data from existing session
       req._passport.session = req.session[passport._key];
     }
@@ -1314,7 +1307,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function SessionStrategy() {
   Strategy.call(this);
-  this.name = &#x27;session&#x27;;
+  this.name = 'session';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1329,7 +1322,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">strategies.SessionStrategy.prototype.authenticate = function (req, options) {
-  if (!req._passport) { return this.error(new Error(&#x27;passport.initialize() middleware not in use&#x27;)); }
+  if (!req._passport) { return this.error(new Error('passport.initialize() middleware not in use')); }
   options = options || {};
 
   var self = this,
@@ -1354,7 +1347,7 @@
         }
         return;
       }
-      var property = req._passport.instance._userProperty || &#x27;user&#x27;;
+      var property = req._passport.instance._userProperty || 'user';
       req[property] = user;
       self.pass();
       if (paused) {
@@ -1405,13 +1398,13 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function Authenticator() {
-  this._key = &#x27;passport&#x27;;
+  this._key = 'passport';
   this._strategies = {};
   this._serializers = [];
   this._deserializers = [];
   this._infoTransformers = [];
   this._framework = null;
-  this._userProperty = &#x27;user&#x27;;
+  this._userProperty = 'user';
 
   this.init();
 }</pre></li>
@@ -1464,7 +1457,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">authorize = function (strategy, options, callback) {
   options = options || {};
-  options.assignProperty = &#x27;account&#x27;;
+  options.assignProperty = 'account';
 
   var fn = this._framework.authorize || this._framework.authenticate;
   return fn(this, strategy, options, callback);
@@ -1482,7 +1475,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">deserializeUser = function (fn, req, done) {
-  if (typeof fn === &#x27;function&#x27;) {
+  if (typeof fn === 'function') {
     return this._deserializers.push(fn);
   }
 
@@ -1491,15 +1484,15 @@
   var obj = fn;
 
   // For backwards compatibility
-  if (typeof req === &#x27;function&#x27;) {
+  if (typeof req === 'function') {
     done = req;
     req = undefined;
   }
 
   var stack = this._deserializers;
   (function pass(i, err, user) {
-    // deserializers use &#x27;pass&#x27; as an error to skip processing
-    if (&#x27;pass&#x27; === err) {
+    // deserializers use 'pass' as an error to skip processing
+    if ('pass' === err) {
       err = undefined;
     }
     // an error or deserialized user was obtained, done
@@ -1510,7 +1503,7 @@
 
     var layer = stack[i];
     if (!layer) {
-      return done(new Error(&#x27;Failed to deserialize user out of session&#x27;));
+      return done(new Error('Failed to deserialize user out of session'));
     }
 
 
@@ -1559,7 +1552,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">init = function () {
-  this.framework(require(&#x27;./framework/connect&#x27;)());
+  this.framework(require('./framework/connect')());
   this.use(new SessionStrategy());
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -1576,7 +1569,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">initialize = function (options) {
   options = options || {};
-  this._userProperty = options.userProperty || &#x27;user&#x27;;
+  this._userProperty = options.userProperty || 'user';
 
   return this._framework.initialize(this, options);
 }</pre></li>
@@ -1593,7 +1586,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">serializeUser = function (fn, req, done) {
-  if (typeof fn === &#x27;function&#x27;) {
+  if (typeof fn === 'function') {
     return this._serializers.push(fn);
   }
 
@@ -1602,15 +1595,15 @@
   var user = fn;
 
   // For backwards compatibility
-  if (typeof req === &#x27;function&#x27;) {
+  if (typeof req === 'function') {
     done = req;
     req = undefined;
   }
 
   var stack = this._serializers;
   (function pass(i, err, obj) {
-    // serializers use &#x27;pass&#x27; as an error to skip processing
-    if (&#x27;pass&#x27; === err) {
+    // serializers use 'pass' as an error to skip processing
+    if ('pass' === err) {
       err = undefined;
     }
     // an error or serialized object was obtained, done
@@ -1618,7 +1611,7 @@
 
     var layer = stack[i];
     if (!layer) {
-      return done(new Error(&#x27;Failed to serialize user into session&#x27;));
+      return done(new Error('Failed to serialize user into session'));
     }
 
 
@@ -1651,7 +1644,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">session = function (options) {
-  return this.authenticate(&#x27;session&#x27;, options);
+  return this.authenticate('session', options);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -1666,7 +1659,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">transformAuthInfo = function (fn, req, done) {
-  if (typeof fn === &#x27;function&#x27;) {
+  if (typeof fn === 'function') {
     return this._infoTransformers.push(fn);
   }
 
@@ -1675,15 +1668,15 @@
   var info = fn;
 
   // For backwards compatibility
-  if (typeof req === &#x27;function&#x27;) {
+  if (typeof req === 'function') {
     done = req;
     req = undefined;
   }
 
   var stack = this._infoTransformers;
   (function pass(i, err, tinfo) {
-    // transformers use &#x27;pass&#x27; as an error to skip processing
-    if (&#x27;pass&#x27; === err) {
+    // transformers use 'pass' as an error to skip processing
+    if ('pass' === err) {
       err = undefined;
     }
     // an error or transformed info was obtained, done
@@ -1750,7 +1743,7 @@
     strategy = name;
     name = strategy.name;
   }
-  if (!name) { throw new Error(&#x27;Authentication strategies must have a name&#x27;); }
+  if (!name) { throw new Error('Authentication strategies must have a name'); }
 
   this._strategies[name] = strategy;
   return this;
@@ -1814,7 +1807,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">authorize = function (strategy, options, callback) {
   options = options || {};
-  options.assignProperty = &#x27;account&#x27;;
+  options.assignProperty = 'account';
 
   var fn = this._framework.authorize || this._framework.authenticate;
   return fn(this, strategy, options, callback);
@@ -1837,7 +1830,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">deserializeUser = function (fn, req, done) {
-  if (typeof fn === &#x27;function&#x27;) {
+  if (typeof fn === 'function') {
     return this._deserializers.push(fn);
   }
 
@@ -1846,15 +1839,15 @@
   var obj = fn;
 
   // For backwards compatibility
-  if (typeof req === &#x27;function&#x27;) {
+  if (typeof req === 'function') {
     done = req;
     req = undefined;
   }
 
   var stack = this._deserializers;
   (function pass(i, err, user) {
-    // deserializers use &#x27;pass&#x27; as an error to skip processing
-    if (&#x27;pass&#x27; === err) {
+    // deserializers use 'pass' as an error to skip processing
+    if ('pass' === err) {
       err = undefined;
     }
     // an error or deserialized user was obtained, done
@@ -1865,7 +1858,7 @@
 
     var layer = stack[i];
     if (!layer) {
-      return done(new Error(&#x27;Failed to deserialize user out of session&#x27;));
+      return done(new Error('Failed to deserialize user out of session'));
     }
 
 
@@ -1924,7 +1917,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">init = function () {
-  this.framework(require(&#x27;./framework/connect&#x27;)());
+  this.framework(require('./framework/connect')());
   this.use(new SessionStrategy());
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -1946,7 +1939,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">initialize = function (options) {
   options = options || {};
-  this._userProperty = options.userProperty || &#x27;user&#x27;;
+  this._userProperty = options.userProperty || 'user';
 
   return this._framework.initialize(this, options);
 }</pre></li>
@@ -1968,7 +1961,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">serializeUser = function (fn, req, done) {
-  if (typeof fn === &#x27;function&#x27;) {
+  if (typeof fn === 'function') {
     return this._serializers.push(fn);
   }
 
@@ -1977,15 +1970,15 @@
   var user = fn;
 
   // For backwards compatibility
-  if (typeof req === &#x27;function&#x27;) {
+  if (typeof req === 'function') {
     done = req;
     req = undefined;
   }
 
   var stack = this._serializers;
   (function pass(i, err, obj) {
-    // serializers use &#x27;pass&#x27; as an error to skip processing
-    if (&#x27;pass&#x27; === err) {
+    // serializers use 'pass' as an error to skip processing
+    if ('pass' === err) {
       err = undefined;
     }
     // an error or serialized object was obtained, done
@@ -1993,7 +1986,7 @@
 
     var layer = stack[i];
     if (!layer) {
-      return done(new Error(&#x27;Failed to serialize user into session&#x27;));
+      return done(new Error('Failed to serialize user into session'));
     }
 
 
@@ -2031,7 +2024,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">session = function (options) {
-  return this.authenticate(&#x27;session&#x27;, options);
+  return this.authenticate('session', options);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2051,7 +2044,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">transformAuthInfo = function (fn, req, done) {
-  if (typeof fn === &#x27;function&#x27;) {
+  if (typeof fn === 'function') {
     return this._infoTransformers.push(fn);
   }
 
@@ -2060,15 +2053,15 @@
   var info = fn;
 
   // For backwards compatibility
-  if (typeof req === &#x27;function&#x27;) {
+  if (typeof req === 'function') {
     done = req;
     req = undefined;
   }
 
   var stack = this._infoTransformers;
   (function pass(i, err, tinfo) {
-    // transformers use &#x27;pass&#x27; as an error to skip processing
-    if (&#x27;pass&#x27; === err) {
+    // transformers use 'pass' as an error to skip processing
+    if ('pass' === err) {
       err = undefined;
     }
     // an error or transformed info was obtained, done
@@ -2145,7 +2138,7 @@
     strategy = name;
     name = strategy.name;
   }
-  if (!name) { throw new Error(&#x27;Authentication strategies must have a name&#x27;); }
+  if (!name) { throw new Error('Authentication strategies must have a name'); }
 
   this._strategies[name] = strategy;
   return this;
@@ -2187,7 +2180,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">authenticate = function (req, options) {
-  throw new Error(&#x27;Strategy#authenticate must be overridden by subclass&#x27;);
+  throw new Error('Strategy#authenticate must be overridden by subclass');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2207,7 +2200,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">authenticate = function (req, options) {
-  throw new Error(&#x27;Strategy#authenticate must be overridden by subclass&#x27;);
+  throw new Error('Strategy#authenticate must be overridden by subclass');
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2227,7 +2220,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function authenticate(passport, name, options, callback) {
-  if (typeof options == &#x27;function&#x27;) {
+  if (typeof options == 'function') {
     callback = options;
     options = {};
   }
@@ -2252,8 +2245,8 @@
 
   return function authenticate(req, res, next) {
     if (http.IncomingMessage.prototype.logIn
-        &#x26;&#x26; http.IncomingMessage.prototype.logIn !== IncomingMessageExt.logIn) {
-      require(&#x27;../framework/connect&#x27;).__monkeypatchNode();
+        &amp;&amp; http.IncomingMessage.prototype.logIn !== IncomingMessageExt.logIn) {
+      require('../framework/connect').__monkeypatchNode();
     }
 
 
@@ -2279,23 +2272,23 @@
 
       if (options.failureFlash) {
         var flash = options.failureFlash;
-        if (typeof flash == &#x27;string&#x27;) {
-          flash = { type: &#x27;error&#x27;, message: flash };
+        if (typeof flash == 'string') {
+          flash = { type: 'error', message: flash };
         }
-        flash.type = flash.type || &#x27;error&#x27;;
+        flash.type = flash.type || 'error';
 
-        var type = flash.type || challenge.type || &#x27;error&#x27;;
+        var type = flash.type || challenge.type || 'error';
         msg = flash.message || challenge.message || challenge;
-        if (typeof msg == &#x27;string&#x27;) {
+        if (typeof msg == 'string') {
           req.flash(type, msg);
         }
       }
       if (options.failureMessage) {
         msg = options.failureMessage;
-        if (typeof msg == &#x27;boolean&#x27;) {
+        if (typeof msg == 'boolean') {
           msg = challenge.message || challenge;
         }
-        if (typeof msg == &#x27;string&#x27;) {
+        if (typeof msg == 'string') {
           req.session.messages = req.session.messages || [];
           req.session.messages.push(msg);
         }
@@ -2312,20 +2305,20 @@
       var rchallenge = []
         , rstatus, status;
 
-      for (var j = 0, len = failures.length; j &#x3c; len; j++) {
+      for (var j = 0, len = failures.length; j &lt; len; j++) {
         failure = failures[j];
         challenge = failure.challenge;
         status = failure.status;
 
         rstatus = rstatus || status;
-        if (typeof challenge == &#x27;string&#x27;) {
+        if (typeof challenge == 'string') {
           rchallenge.push(challenge);
         }
       }
 
       res.statusCode = rstatus || 401;
-      if (res.statusCode == 401 &#x26;&#x26; rchallenge.length) {
-        res.setHeader(&#x27;WWW-Authenticate&#x27;, rchallenge);
+      if (res.statusCode == 401 &amp;&amp; rchallenge.length) {
+        res.setHeader('WWW-Authenticate', rchallenge);
       }
       if (options.failWithError) {
         return next(new AuthenticationError(http.STATUS_CODES[res.statusCode], rstatus));
@@ -2357,7 +2350,7 @@
     req._passport = {};
     req._passport.instance = passport;
 
-    if (req.session &#x26;&#x26; req.session[passport._key]) {
+    if (req.session &amp;&amp; req.session[passport._key]) {
       // load data from existing session
       req._passport.session = req.session[passport._key];
     }
@@ -2383,7 +2376,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function authenticate(passport, name, options, callback) {
-  if (typeof options == &#x27;function&#x27;) {
+  if (typeof options == 'function') {
     callback = options;
     options = {};
   }
@@ -2408,8 +2401,8 @@
 
   return function authenticate(req, res, next) {
     if (http.IncomingMessage.prototype.logIn
-        &#x26;&#x26; http.IncomingMessage.prototype.logIn !== IncomingMessageExt.logIn) {
-      require(&#x27;../framework/connect&#x27;).__monkeypatchNode();
+        &amp;&amp; http.IncomingMessage.prototype.logIn !== IncomingMessageExt.logIn) {
+      require('../framework/connect').__monkeypatchNode();
     }
 
 
@@ -2435,23 +2428,23 @@
 
       if (options.failureFlash) {
         var flash = options.failureFlash;
-        if (typeof flash == &#x27;string&#x27;) {
-          flash = { type: &#x27;error&#x27;, message: flash };
+        if (typeof flash == 'string') {
+          flash = { type: 'error', message: flash };
         }
-        flash.type = flash.type || &#x27;error&#x27;;
+        flash.type = flash.type || 'error';
 
-        var type = flash.type || challenge.type || &#x27;error&#x27;;
+        var type = flash.type || challenge.type || 'error';
         msg = flash.message || challenge.message || challenge;
-        if (typeof msg == &#x27;string&#x27;) {
+        if (typeof msg == 'string') {
           req.flash(type, msg);
         }
       }
       if (options.failureMessage) {
         msg = options.failureMessage;
-        if (typeof msg == &#x27;boolean&#x27;) {
+        if (typeof msg == 'boolean') {
           msg = challenge.message || challenge;
         }
-        if (typeof msg == &#x27;string&#x27;) {
+        if (typeof msg == 'string') {
           req.session.messages = req.session.messages || [];
           req.session.messages.push(msg);
         }
@@ -2468,20 +2461,20 @@
       var rchallenge = []
         , rstatus, status;
 
-      for (var j = 0, len = failures.length; j &#x3c; len; j++) {
+      for (var j = 0, len = failures.length; j &lt; len; j++) {
         failure = failures[j];
         challenge = failure.challenge;
         status = failure.status;
 
         rstatus = rstatus || status;
-        if (typeof challenge == &#x27;string&#x27;) {
+        if (typeof challenge == 'string') {
           rchallenge.push(challenge);
         }
       }
 
       res.statusCode = rstatus || 401;
-      if (res.statusCode == 401 &#x26;&#x26; rchallenge.length) {
-        res.setHeader(&#x27;WWW-Authenticate&#x27;, rchallenge);
+      if (res.statusCode == 401 &amp;&amp; rchallenge.length) {
+        res.setHeader('WWW-Authenticate', rchallenge);
       }
       if (options.failWithError) {
         return next(new AuthenticationError(http.STATUS_CODES[res.statusCode], rstatus));
@@ -2518,7 +2511,7 @@
     req._passport = {};
     req._passport.instance = passport;
 
-    if (req.session &#x26;&#x26; req.session[passport._key]) {
+    if (req.session &amp;&amp; req.session[passport._key]) {
       // load data from existing session
       req._passport.session = req.session[passport._key];
     }
@@ -2545,7 +2538,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function SessionStrategy() {
   Strategy.call(this);
-  this.name = &#x27;session&#x27;;
+  this.name = 'session';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2566,7 +2559,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function SessionStrategy() {
   Strategy.call(this);
-  this.name = &#x27;session&#x27;;
+  this.name = 'session';
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -2600,7 +2593,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">authenticate = function (req, options) {
-  if (!req._passport) { return this.error(new Error(&#x27;passport.initialize() middleware not in use&#x27;)); }
+  if (!req._passport) { return this.error(new Error('passport.initialize() middleware not in use')); }
   options = options || {};
 
   var self = this,
@@ -2625,7 +2618,7 @@
         }
         return;
       }
-      var property = req._passport.instance._userProperty || &#x27;user&#x27;;
+      var property = req._passport.instance._userProperty || 'user';
       req[property] = user;
       self.pass();
       if (paused) {
@@ -2654,7 +2647,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">authenticate = function (req, options) {
-  if (!req._passport) { return this.error(new Error(&#x27;passport.initialize() middleware not in use&#x27;)); }
+  if (!req._passport) { return this.error(new Error('passport.initialize() middleware not in use')); }
   options = options || {};
 
   var self = this,
@@ -2679,7 +2672,7 @@
         }
         return;
       }
-      var property = req._passport.instance._userProperty || &#x27;user&#x27;;
+      var property = req._passport.instance._userProperty || 'user';
       req[property] = user;
       self.pass();
       if (paused) {
@@ -2702,3 +2695,4 @@
     ]
 </div>
 </div>
+</body></html>
