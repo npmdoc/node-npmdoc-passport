@@ -1,6 +1,6 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
-    "description": "#### api documentation for  [passport (v0.3.2)](http://passportjs.org/)  [![npm package](https://img.shields.io/npm/v/npmdoc-passport.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-passport) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-passport.svg)](https://travis-ci.org/npmdoc/node-npmdoc-passport)",
+    "description": "#### basic api documentation for  [passport (v0.3.2)](http://passportjs.org/)  [![npm package](https://img.shields.io/npm/v/npmdoc-passport.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-passport) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-passport.svg)](https://travis-ci.org/npmdoc/node-npmdoc-passport)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "passport": "*",
@@ -35,5 +35,5 @@
         "start": "PORT=${PORT:-8080} utility2 start test.js",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.6"
+    "version": "2017.4.27"
 }

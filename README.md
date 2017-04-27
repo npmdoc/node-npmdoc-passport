@@ -1,6 +1,6 @@
 # npmdoc-passport
 
-#### api documentation for  [passport (v0.3.2)](http://passportjs.org/)  [![npm package](https://img.shields.io/npm/v/npmdoc-passport.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-passport) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-passport.svg)](https://travis-ci.org/npmdoc/node-npmdoc-passport)
+#### basic api documentation for  [passport (v0.3.2)](http://passportjs.org/)  [![npm package](https://img.shields.io/npm/v/npmdoc-passport.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-passport) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-passport.svg)](https://travis-ci.org/npmdoc/node-npmdoc-passport)
 
 #### Simple, unobtrusive authentication for Node.js.
 
@@ -79,7 +79,8 @@
     "scripts": {
         "test": "mocha --reporter spec --require test/bootstrap/node test/*.test.js test/**/*.test.js"
     },
-    "version": "0.3.2"
+    "version": "0.3.2",
+    "bin": {}
 }
 ```
 
