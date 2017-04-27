@@ -533,7 +533,23 @@
     <li>description and source-code<pre class="apidocCodePre">_strategy = function (name) {
   return this._strategies[name];
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var layer = name[i];
+  // If no more strategies exist in the chain, authentication has failed.
+  if (!layer) { return allFailed(); }
+
+  // Get the strategy, which will be used as prototype from which to create
+  // a new instance.  Action functions will then be bound to the strategy
+  // within the context of the HTTP request/response pair.
+  var prototype = passport.<span class="apidocCodeKeywordSpan">_strategy</span>(layer);
+  if (!prototype) { return next(new Error(&#x27;Unknown authentication strategy &#x22;&#x27; + layer + &#x27;&#x22;&#x27;)); }
+
+  var strategy = Object.create(prototype);
+
+
+  // ----- BEGIN STRATEGY AUGMENTATION -----
+  // Augment the new strategy instance with action functions.  These action
+...</pre></li>
     </ul>
 
 
@@ -548,7 +564,24 @@
     <li>description and source-code<pre class="apidocCodePre">authenticate = function (strategy, options, callback) {
   return this._framework.authenticate(this, strategy, options, callback);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+* Middleware that will authenticate a request using the given `strategy` name,
+* with optional `options` and `callback`.
+*
+* Examples:
+*
+*     passport.<span class="apidocCodeKeywordSpan">authenticate</span>(&#x27;local&#x27;, { successRedirect: &#x27;/&#x27;, failureRedirect
+: &#x27;/login&#x27; })(req, res);
+*
+*     passport.authenticate(&#x27;local&#x27;, function(err, user) {
+*       if (!user) { return res.redirect(&#x27;/login&#x27;); }
+*       res.end(&#x27;Authenticated!&#x27;);
+*     })(req, res);
+*
+*     passport.authenticate(&#x27;basic&#x27;, { session: false })(req, res);
+...</pre></li>
     </ul>
 
 
@@ -567,7 +600,24 @@
   var fn = this._framework.authorize || this._framework.authenticate;
   return fn(this, strategy, options, callback);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * `req.user` will be unaffected.
+ *
+ * This function is particularly useful when connecting third-party accounts
+ * to the local account of a user that is currently authenticated.
+ *
+ * Examples:
+ *
+ *    passport.<span class="apidocCodeKeywordSpan">authorize</span>(&#x27;twitter-authz&#x27;, { failureRedirect: &#x27;/account
+&#x27; });
+ *
+ * @param {String} strategy
+ * @param {Object} options
+ * @return {Function} middleware
+ * @api public
+ */
+Authenticator.prototype.authorize = function(strategy, options, callback) {
+...</pre></li>
     </ul>
 
 
@@ -628,7 +678,23 @@
     }
   })(0);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+/**
+* Registers a function used to deserialize user objects out of the session.
+*
+* Examples:
+*
+*     passport.<span class="apidocCodeKeywordSpan">deserializeUser</span>(function(id, done) {
+*       User.findById(id, function (err, user) {
+*         done(err, user);
+*       });
+*     });
+*
+* @api public
+*/
+...</pre></li>
     </ul>
 
 
@@ -644,7 +710,23 @@
   this._framework = fw;
   return this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+* Initialize authenticator.
+*
+* @api protected
+*/
+Authenticator.prototype.init = function() {
+ this.<span class="apidocCodeKeywordSpan">framework</span>(require(&#x27;./framework/connect&#x27;)());
+ this.use(new SessionStrategy());
+};
+
+/**
+* Utilize the given `strategy` with optional `name`, overridding the strategy&#x27;s
+* default name.
+*
+...</pre></li>
     </ul>
 
 
@@ -660,7 +742,23 @@
   this.framework(require(&#x27;./framework/connect&#x27;)());
   this.use(new SessionStrategy());
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ this._strategies = {};
+ this._serializers = [];
+ this._deserializers = [];
+ this._infoTransformers = [];
+ this._framework = null;
+ this._userProperty = &#x27;user&#x27;;
+
+ this.<span class="apidocCodeKeywordSpan">init</span>();
+}
+
+/**
+* Initialize authenticator.
+*
+* @api protected
+*/
+...</pre></li>
     </ul>
 
 
@@ -678,7 +776,23 @@
 
   return this._framework.initialize(this, options);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* Passport to operate.
+*
+* Options:
+*   - `userProperty`  Property to set on `req` upon login, defaults to _user_
+*
+* Examples:
+*
+*     app.use(passport.<span class="apidocCodeKeywordSpan">initialize</span>());
+*
+*     app.use(passport.initialize({ userProperty: &#x27;currentUser&#x27; }));
+*
+* @param {Object} options
+* @return {Function} middleware
+* @api public
+*/
+...</pre></li>
     </ul>
 
 
@@ -736,7 +850,23 @@
     }
   })(0);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+/**
+ * Registers a function used to serialize user objects into the session.
+ *
+ * Examples:
+ *
+ *     passport.<span class="apidocCodeKeywordSpan">serializeUser</span>(function(user, done) {
+ *       done(null, user.id);
+ *     });
+ *
+ * @api public
+ */
+Authenticator.prototype.serializeUser = function(fn, req, done) {
+if (typeof fn === &#x27;function&#x27;) {
+...</pre></li>
     </ul>
 
 
@@ -751,7 +881,23 @@
     <li>description and source-code<pre class="apidocCodePre">session = function (options) {
   return this.authenticate(&#x27;session&#x27;, options);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* However, as a general rule, most web applications will make use of sessions.
+* An exception to this rule would be an API server, which expects each HTTP
+* request to provide credentials in an Authorization header.
+*
+* Examples:
+*
+*     app.use(connect.cookieParser());
+*     app.use(connect.<span class="apidocCodeKeywordSpan">session</span>({ secret: &#x27;keyboard cat&#x27; }));
+*     app.use(passport.initialize());
+*     app.use(passport.session());
+*
+* Options:
+*   - `pauseStream`      Pause the request stream before deserializing the user
+*                        object from the session.  Defaults to _false_.  Should
+*                        be set to true in cases where middleware consuming the
+...</pre></li>
     </ul>
 
 
@@ -815,7 +961,23 @@
     }
   })(0);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* allowing the full set of client properties to be convieniently accessed.
+*
+* If no transforms are registered, `info` supplied by the strategy will be left
+* unmodified.
+*
+* Examples:
+*
+*     passport.<span class="apidocCodeKeywordSpan">transformAuthInfo</span>(function(info, done) {
+*       Client.findById(info.clientID, function (err, client) {
+*         info.client = client;
+*         done(err, info);
+*       });
+*     });
+*
+* @api public
+...</pre></li>
     </ul>
 
 
@@ -831,7 +993,23 @@
   delete this._strategies[name];
   return this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *
+ * However, in certain situations, applications may need dynamically configure
+ * and de-configure authentication strategies.  The `use()`/`unuse()`
+ * combination satisfies these scenarios.
+ *
+ * Examples:
+ *
+ *     passport.<span class="apidocCodeKeywordSpan">unuse</span>(&#x27;legacy-api&#x27;);
+ *
+ * @param {String} name
+ * @return {Authenticator} for chaining
+ * @api public
+ */
+Authenticator.prototype.unuse = function(name) {
+delete this._strategies[name];
+...</pre></li>
     </ul>
 
 
@@ -853,7 +1031,23 @@
   this._strategies[name] = strategy;
   return this;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+/**
+* Initialize authenticator.
+*
+* @api protected
+*/
+Authenticator.prototype.init = function() {
+ this.framework(require(&#x27;./framework/connect&#x27;)());
+ this.<span class="apidocCodeKeywordSpan">use</span>(new SessionStrategy());
+};
+
+/**
+* Utilize the given `strategy` with optional `name`, overridding the strategy&#x27;s
+* default name.
+*
+* Examples:
+...</pre></li>
     </ul>
 
 
@@ -892,7 +1086,24 @@
     <li>description and source-code<pre class="apidocCodePre">authenticate = function (req, options) {
   throw new Error(&#x27;Strategy#authenticate must be overridden by subclass&#x27;);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+* Middleware that will authenticate a request using the given `strategy` name,
+* with optional `options` and `callback`.
+*
+* Examples:
+*
+*     passport.<span class="apidocCodeKeywordSpan">authenticate</span>(&#x27;local&#x27;, { successRedirect: &#x27;/&#x27;, failureRedirect
+: &#x27;/login&#x27; })(req, res);
+*
+*     passport.authenticate(&#x27;local&#x27;, function(err, user) {
+*       if (!user) { return res.redirect(&#x27;/login&#x27;); }
+*       res.end(&#x27;Authenticated!&#x27;);
+*     })(req, res);
+*
+*     passport.authenticate(&#x27;basic&#x27;, { session: false })(req, res);
+...</pre></li>
     </ul>
 
 
@@ -1022,7 +1233,24 @@
       if (!layer) { return allFailed(); }
 
       // Get the strategy, which will be used as prot ...</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+* Middleware that will authenticate a request using the given `strategy` name,
+* with optional `options` and `callback`.
+*
+* Examples:
+*
+*     passport.<span class="apidocCodeKeywordSpan">authenticate</span>(&#x27;local&#x27;, { successRedirect: &#x27;/&#x27;, failureRedirect
+: &#x27;/login&#x27; })(req, res);
+*
+*     passport.authenticate(&#x27;local&#x27;, function(err, user) {
+*       if (!user) { return res.redirect(&#x27;/login&#x27;); }
+*       res.end(&#x27;Authenticated!&#x27;);
+*     })(req, res);
+*
+*     passport.authenticate(&#x27;basic&#x27;, { session: false })(req, res);
+...</pre></li>
     </ul>
 
 
@@ -1048,7 +1276,23 @@
     next();
   };
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* Passport to operate.
+*
+* Options:
+*   - `userProperty`  Property to set on `req` upon login, defaults to _user_
+*
+* Examples:
+*
+*     app.use(passport.<span class="apidocCodeKeywordSpan">initialize</span>());
+*
+*     app.use(passport.initialize({ userProperty: &#x27;currentUser&#x27; }));
+*
+* @param {Object} options
+* @return {Function} middleware
+* @api public
+*/
+...</pre></li>
     </ul>
 
 
@@ -1158,7 +1402,24 @@
     self.pass();
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+/**
+* Middleware that will authenticate a request using the given `strategy` name,
+* with optional `options` and `callback`.
+*
+* Examples:
+*
+*     passport.<span class="apidocCodeKeywordSpan">authenticate</span>(&#x27;local&#x27;, { successRedirect: &#x27;/&#x27;, failureRedirect
+: &#x27;/login&#x27; })(req, res);
+*
+*     passport.authenticate(&#x27;local&#x27;, function(err, user) {
+*       if (!user) { return res.redirect(&#x27;/login&#x27;); }
+*       res.end(&#x27;Authenticated!&#x27;);
+*     })(req, res);
+*
+*     passport.authenticate(&#x27;basic&#x27;, { session: false })(req, res);
+...</pre></li>
     </ul>
 
 
